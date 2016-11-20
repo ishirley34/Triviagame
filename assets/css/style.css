@@ -1,0 +1,22 @@
+body {
+	background-image: url(../images/johnny.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.jumbotron {
+	opacity: .7;
+	margin-top: 15%;
+	text-align: center;
+}
+#timerBox {
+	opacity: .8;
+	background: white;
+	text-align: center;
+}
+
+#questionBox {
+	margin-top: 15%;
+	text-align: center;
+	opacity: .8;
+}

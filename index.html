@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cartoon Quiz</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+
+	<!-- Link for JQuery -->
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+	<!-- Personal CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+	<!-- This box will contain the timer -->
+	<div class="container">
+		<div class="row" id="timerBox">
+		
+		</div>
+	</div>
+
+
+	<!-- This is the main header for the page with a button to start the quiz -->
+	<div class="container">
+		<div class="row">	
+			<div class="jumbotron">
+			  <h1>Cartoon Cartoon!</h1>
+			  <br><br>
+			  <p>Think you have what it takes to master Saturday mornings? Test your skills.</p>
+			  <p><a class="btn btn-primary btn-lg" role="button" id="startButton">Start Quiz</a></p>
+		</div>
+	</div>
+
+	<!-- This box will contain the questions that are added from the JS file -->
+	<div class="container">
+		<div class="row" id="questionBox">
+
+		</div>
+	</div>
+
+	<!-- This will link to the external JS -->
+	<script src="assets/javascript/game.js"></script>
+
+	
+</body>
+</html>
