@@ -11,17 +11,17 @@ var cartoonTrivia = {
 	startTime: 120, 
 
 	counter: function() {
-		setInterval(this.decrement, 1000);
+		setInterval(cartoonTrivia.decrement, 1000);
 	},
 
 	// timer function for the trivia clock
 	decrement: function() {
-		// this.startTime--;
-		$("#timerBox").html("<h2>" + this.startTime + "</h2>");
-			console.log(this.startTime);
+		cartoonTrivia.startTime--;
+		$("#timerBox").html("<h2>" + cartoonTrivia.startTime + "</h2>");
+			console.log(cartoonTrivia.startTime);
 		// If loop to end game when the timer reaches 0
-		if (this.startTime == 0) {
-			this.counter.stop();
+		if (cartoonTrivia.startTime == 0) {
+			cartoonTrivia.counter.stop();
 
 			gameOver();
 		} // closes the timer if
@@ -32,7 +32,7 @@ var cartoonTrivia = {
 	startButton: function() {
 		$("#quizStart").fadeOut(4000);
 		$("#timerBox").fadeIn(4000);
-		this.counter();
+		cartoonTrivia.counter();
 	}
 
 }; // Closes the cartoonTrivia obj
