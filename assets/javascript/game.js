@@ -6,39 +6,57 @@
 var cartoonTrivia = {
 
 	// This is the question pool that will be used to populate the question box in the main page.
-	questions: {
-		question: [
-			"answer1",
-			"answer2",
-			"answer3",
-			"answer4"
-		],
-		question: [
-			"answer1",
-			"answer2",
-			"answer3",
-			"answer4"
-		],
-		question: [
-			"answer1",
-			"answer2",
-			"answer3",
-			"answer4"
-		],
-		question: [
-			"answer1",
-			"answer2",
-			"answer3",
-			"answer4"
-		],
-	},
+	questions: [
+		{
+		"question": "This is the question?",
+			"answers": [
+				"answer1a",
+				"answer2a",
+				"answer3a",
+				"answer4a"
+			],
+			"answer" : "answer"
+		},
+		{
+		"question": "This is the question?",
+			"answers": [
+				"answer1b",
+				"answer2b",
+				"answer3b",
+				"answer4b"
+			],
+			"answer" : "answer"
+		},
+		{
+		"question": "This is the question?",
+			"answers": [
+				"answer1c",
+				"answer2c",
+				"answer3c",
+				"answer4c"
+			],
+			"answer" : "answer"
+		},
+		{
+		"question": "This is the question?",
+			"answers": [
+				"answer1d",
+				"answer2d",
+				"answer3d",
+				"answer4d"
+			],
+			"answer" : "answer"
+		},
+	],
 
 	// declaration of game variables
-	startTime: 10,
+	questionTotal: 10,
+	startTime: 120,
 	correct: 0,
 	incorrect: 10,
+	noAnswer: 0,
 
-	// 
+	// this function creates the interval for the timer
 	counter: function() {
 		setInterval(cartoonTrivia.decrement, 1000);
 	}, // closes the counter function
@@ -59,7 +77,8 @@ var cartoonTrivia = {
 			cartoonTrivia.stop();
 
 			gameOver();
-		} // closes the timer if	
+		} // closes the timer if
+
 	}, // Closes the timer function
 
 	// This function stops the counter
@@ -69,10 +88,53 @@ var cartoonTrivia = {
 
 	// This function is for the start button
 	startButton: function() {
-		$("#quizStart").fadeOut(4000);
-		$("#timerBox").fadeIn(4000);
+
+		// fades out the splash screen
+		$("#quizStart").fadeOut(2000);
+
+		// fades inthe timer
+		$("#timerBox").fadeIn(2000);
+
+		// fades in the question box
+		$("#questionBox").delay(1000).fadeIn(2000);
+
+		// this starts the the counter
 		cartoonTrivia.counter();
+
 	}, // closes start button
+
+	// this function creates the html elements for the questions and answers
+	questionFunc: function () {
+		// working on getting this to work. might not happen......
+		var object = this.questions[index];
+		var question = object["Question"];
+		var choices = object["answers"];
+		var header = $("<h2>");
+		header.text(question);
+		$("#questionBox").prepend(header);
+
+		for (var i = 0; i < choices.length; i++) {
+			var label= $("<label>");
+			label.addClass("answer");
+			var input= $("<input>");
+			input.attr("name", "optradio");
+			input.attr("type", "radio");
+			input.attr("value", choices[i]);
+			input.addClass("btn btn-default");
+			label.text(choices[i]);
+			label.prepend(input);
+			$("#questionBox").append(label);
+		};
+	},
 
 
 }; // Closes the cartoonTrivia obj
+
+// event listener to add functionality to the buttons
+$(document).ready(function(){
+	// this is the function that adds a listener the the start button
+	$(document).on("click", "#startButton", function(){
+		cartoonTrivia.startButton();
+	}); // this closes the start button event listener
+
+}); // this closes the document ready function
