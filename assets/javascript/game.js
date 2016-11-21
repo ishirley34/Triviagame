@@ -55,6 +55,7 @@ var cartoonTrivia = {
 	correct: 0,
 	incorrect: 10,
 	noAnswer: 0,
+	index: 0,
 
 	// this function creates the interval for the timer
 	counter: function() {
@@ -101,32 +102,52 @@ var cartoonTrivia = {
 		// this starts the the counter
 		cartoonTrivia.counter();
 
+		// This calls the questionFunc function
+		this.questionFunc(cartoonTrivia.index);
+
 	}, // closes start button
 
 	// this function creates the html elements for the questions and answers
-	questionFunc: function () {
-		// working on getting this to work. might not happen......
-		var object = this.questions[index];
-		var question = object["Question"];
+	questionFunc: function (index) {
+		// this add html elements to the questions so that they can be displayed on the page
+		var object = this.questions[this.index];
+
+		var question = object["question"];
+
 		var choices = object["answers"];
+
 		var header = $("<h2>");
+
 		header.text(question);
+
 		$("#questionBox").prepend(header);
 
+		// This for loop cycles through the anser options and gives adds them to the html with radio buttons
 		for (var i = 0; i < choices.length; i++) {
-			var label= $("<label>");
-			label.addClass("answer");
-			var input= $("<input>");
-			input.attr("name", "optradio");
-			input.attr("type", "radio");
-			input.attr("value", choices[i]);
-			input.addClass("btn btn-default");
-			label.text(choices[i]);
-			label.prepend(input);
-			$("#questionBox").append(label);
-		};
-	},
 
+			var label= $("<label>");
+			
+			label.addClass("answer");
+			
+			var input= $("<input>");
+			
+			input.attr("name", "optradio");
+			
+			input.attr("type", "radio");
+			
+			input.attr("value", choices[i]);
+			
+			input.addClass("btn btn-default");
+			
+			label.text(choices[i]);
+			
+			label.prepend(input);
+			
+			$("#questionBox").append(label);
+		}; // closes the for loop
+	}, // closes the questionFunc function
+
+	// I need to create a button to move onto the next question.
 
 }; // Closes the cartoonTrivia obj
 
