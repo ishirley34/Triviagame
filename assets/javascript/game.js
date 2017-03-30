@@ -10,40 +10,40 @@ var cartoonTrivia = {
 		{
 		"question": "This is the question?",
 			"answers": [
-				"answer1a",
-				"answer2a",
-				"answer3a",
-				"answer4a"
+				"answer1a  ",
+				"answer2a  ",
+				"answer3a  ",
+				"answer4a  "
 			],
 			"answer" : "answer"
 		},
 		{
 		"question": "This is the question?",
 			"answers": [
-				"answer1b",
-				"answer2b",
-				"answer3b",
-				"answer4b"
+				"answer1b  ",
+				"answer2b  ",
+				"answer3b  ",
+				"answer4b  "
 			],
 			"answer" : "answer"
 		},
 		{
 		"question": "This is the question?",
 			"answers": [
-				"answer1c",
-				"answer2c",
-				"answer3c",
-				"answer4c"
+				"answer1c  ",
+				"answer2c  ",
+				"answer3c  ",
+				"answer4c  "
 			],
 			"answer" : "answer"
 		},
 		{
 		"question": "This is the question?",
 			"answers": [
-				"answer1d",
-				"answer2d",
-				"answer3d",
-				"answer4d"
+				"answer1d  ",
+				"answer2d  ",
+				"answer3d  ",
+				"answer4d  "
 			],
 			"answer" : "answer"
 		},
@@ -120,7 +120,7 @@ var cartoonTrivia = {
 
 		header.text(question);
 
-		$("#questionBox").prepend(header);
+		$("#question").prepend(header);
 
 		// This for loop cycles through the anser options and gives adds them to the html with radio buttons
 		for (var i = 0; i < choices.length; i++) {
@@ -143,7 +143,7 @@ var cartoonTrivia = {
 			
 			label.prepend(input);
 			
-			$("#questionBox").append(label);
+			$("#question").append(label);
 		}; // closes the for loop
 	}, // closes the questionFunc function
 
@@ -153,9 +153,16 @@ var cartoonTrivia = {
 
 // event listener to add functionality to the buttons
 $(document).ready(function(){
+
 	// this is the function that adds a listener the the start button
 	$(document).on("click", "#startButton", function(){
 		cartoonTrivia.startButton();
 	}); // this closes the start button event listener
+
+	// This is for the next button listener
+	$(document).on("click", "#nextButton", function(){
+		cartoonTrivia.nextButton();
+		$("#question").empty();
+	}); // closes the nextButton listener
 
 }); // this closes the document ready function
